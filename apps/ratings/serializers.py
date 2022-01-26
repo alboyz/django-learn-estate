@@ -3,8 +3,8 @@ from.models import Rating
 
 
 class RatingSerializer(serializers.ModelSerializer):
-    rater = serializers.SerializerMethodField(read_omly=True)
-    agent = serializers.SerializerMethodField(read_onky=True)
+    rater = serializers.SerializerMethodField(read_only=True)
+    agent = serializers.SerializerMethodField(read_only=True)
 
     class Meta:
         model = Rating

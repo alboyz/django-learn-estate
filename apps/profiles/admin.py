@@ -9,3 +9,6 @@ class ProfileAdmin(admin.ModelAdmin):
     ]
     list_filter = ['gender', 'country', 'city']
     list_display_link = ['id', 'pkid', 'user']
+
+
+admin.site.register(Profile, ProfileAdmin)
