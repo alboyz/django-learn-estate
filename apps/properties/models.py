@@ -33,12 +33,12 @@ class Property(TimeStampedUUIDModel):
         WHEREHOUSE = 'WhereHouse', _('WhereHouse')
         OTHER = 'Other', _('Other')
 
-    user = (models.ForeignKey(
+    user = models.ForeignKey(
         User,
         verbose_name=_('Agent, Seller, or Buyer'),
         related_name='agent_buyer',
         on_delete=models.DO_NOTHING,
-    ), )
+    )
 
     title = models.CharField(verbose_name=_('Property Title'), max_length=250)
     slug = AutoSlugField(
@@ -84,10 +84,10 @@ class Property(TimeStampedUUIDModel):
                               decimal_places=2,
                               default=0.15,
                               help_text='15% Property Tax Charged')
-    plot_ara = models.DecimalField(verbose_name=_('Plot Area(m^2)'),
-                                   max_digits=8,
-                                   decimal_places=2,
-                                   default=6.0)
+    plot_area = models.DecimalField(verbose_name=_('Plot Area(m^2)'),
+                                    max_digits=8,
+                                    decimal_places=2,
+                                    default=6.0)
     total_floors = models.IntegerField(verbose_name=_('Number of Floors'),
                                        default=0)
     bedrooms = models.IntegerField(verbose_name=_('Bedrooms'), default=1)
@@ -147,7 +147,7 @@ class Property(TimeStampedUUIDModel):
 
     def save(self, *args, **kwargs):
         self.title = str.title(self.title)
-        self.description = str.description(self.description)
+        self.description = str.capitalize(self.description)
         self.ref_code = "".join(
             random.choices(string.ascii_uppercase + string.digits, k=20))
         super(Property, self).save(*args, **kwargs)

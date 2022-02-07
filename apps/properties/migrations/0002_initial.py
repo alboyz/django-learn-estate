@@ -9,14 +9,14 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('profiles', '0001_initial'),
+        ('properties', '0001_initial'),
         ('users', '0001_initial'),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='profile',
+            model_name='property',
             name='user',
-            field=models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, related_name='profile', to='users.user'),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.DO_NOTHING, related_name='agent_buyer', to='users.user', verbose_name='Agent, Seller, or Buyer'),
         ),
     ]

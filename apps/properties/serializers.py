@@ -49,7 +49,7 @@ class PropertyCreateSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Property
-        exclude = ['update_at', 'pkid']
+        exclude = ['updated_at', 'pkid']
 
 
 class PropertyViewSerializer(serializers.ModelSerializer):
