@@ -49,7 +49,7 @@ class Rating(TimeStampedUUIDModel):
         help_text="1=Poor, 2=Fair, 3=Good, 4=Very Good 5=Excelent",
         default=0,
     )
-    argument = models.TextField(verbose_name=_('Comment'))
+    comment = models.TextField(verbose_name=_('Comment'))
 
     class Meta:
         unique_together = ["rater", "agent"]
