@@ -12,3 +12,8 @@ psycopg-binary==3.0.7
 pylint==2.12.2
 autopep8==1.6.0
 djoser==2.1.0
+pytest-django==4.4.0
+pytest-factoryboy==2.1.0
+Faker==8.9.1
+pytest-cov==2.12.1
+
